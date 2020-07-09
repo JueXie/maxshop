@@ -1,0 +1,54 @@
+<max-nav title="{{title}}" backgroundColor="#f2f2f2"></max-nav>
+
+<view class="userinfo-wrapper">
+    <van-icon class="icon-location" name="location" size="30px" color="#2588ff"/>
+    <view class="userinfo-content">
+        <view class="user"><text class="name">{{order_info.order_data.address.userName}}</text><text class="phone">{{order_info.order_data.address.telNumber}}</text></view>
+        <view class="address-wrapper"><text class="address">{{address}}</text></view>
+    </view>
+</view>
+
+<view class="trade_no-wrapper">
+    <text>订单号：</text><text>7f6f65aa20200630184120</text>
+</view>
+
+<view class="cart-content-wrapper">
+    <view wx:for="{{order_info.order_data.cart_data.content}}" class="cart-item">
+        <view class="cart-item-img">
+            <image mode="heightFix" src="{{item.main_img}}"></image>
+        </view>
+        <view class="cart-item-title">
+            <text>{{item.title}}</text>
+        </view>
+        <view class="cart-item-count">
+            <text>x{{item.sub_count}}</text>
+        </view>
+        <view class="cart-item-subtotal">
+            <text>￥{{item.sub_total}}</text>
+        </view>
+    </view>
+    <view class="cart-item">
+        <view class="cart-item-total">
+            <text>合计：</text>
+        </view>
+        <view class="cart-item-title">
+        </view>
+        <view class="cart-item-count">
+            <text>x{{order_info.order_data.cart_data.count}}</text>
+        </view>
+        <view class="cart-item-subtotal">
+            <text>￥{{order_info.order_data.cart_data.price}}</text>
+        </view>
+    </view>
+</view>
+
+<view class="order-info-wrapper">
+    <view class="item-wrapper">
+        <text class="title">支付方式：</text>
+        <text class="content">{{order_info.order_data.payment}}</text>
+    </view>
+        <view class="item-wrapper">
+        <text class="title">创建时间：</text>
+        <text class="content">{{order_info.created_at}}</text>
+    </view>
+</view>

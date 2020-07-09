@@ -1,0 +1,48 @@
+<max-nav title="{{title}}"></max-nav>
+<block wx:for="{{cart.content}}">
+<view class="line"></view>
+    <van-card
+    price="{{item.sub_total}}"
+    origin-price="{{item.normal_price}}"
+    title="{{item.title}}"
+    thumb="{{ item.main_img }}"
+    >
+    <view slot="footer">
+        <van-stepper disable-input id="{{item.product_id}}" min="0" value="{{ item.sub_count }}" bind:change="onCountChange" />
+    </view>
+    </van-card>
+</block>
+<view class="bottom"></view>
+
+<block wx:if="{{cart.content==undefined}}">
+ <!--购物车空的提示  -->
+    <view class="tip-wrapper">
+      购物车里空空如也~
+    </view>
+
+<van-submit-bar
+  disabled
+  price="{{cart.price}}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+> 
+  <block wx:if="{{tip!=''}}">
+    <view slot="tip">
+      {{tip}}
+    </view>
+  </block>
+</van-submit-bar>
+</block>
+<block wx:else>
+<van-submit-bar
+  price="{{cart.price}}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+> 
+  <block wx:if="{{tip!=''}}">
+    <view slot="tip">
+      {{tip}}
+    </view>
+  </block>
+</van-submit-bar>
+</block>

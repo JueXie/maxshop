@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-submit-bar": "@vant/weapp/submit-bar",
+    "van-card": "@vant/weapp/card",
+    "van-stepper": "@vant/weapp/stepper",
+    "van-cell": "@vant/weapp/cell",
+    "van-radio": "@vant/weapp/radio",
+    "van-radio-group": "@vant/weapp/radio-group",
+    "van-cell-group": "@vant/weapp/cell-group"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-grid": "@vant/weapp/grid",
+    "van-grid-item": "@vant/weapp/grid-item",
+    "van-image": "@vant/weapp/image",
+    "van-card": "@vant/weapp/card",
+    "van-button": "@vant/weapp/button",
+    "van-overlay": "@vant/weapp/overlay/index"
+  }
+}

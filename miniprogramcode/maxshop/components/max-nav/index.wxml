@@ -1,0 +1,8 @@
+<view class="max-nav-wrap" style="height:{{height}};background-color:{{backgroundColor}}">
+    <view class="max-nav-content">
+        <view class="max-navigate-back" bindtap="_navigateBack">
+            <image mode="widthFix" class="back-icon" src="/images/icon/arrow_left.png"></image>
+        </view>
+        <text class="title">{{title}}</text>
+    </view>
+</view>

@@ -1,0 +1,120 @@
+page {
+    background-color: #f2f2f2;
+}
+/* 用户信息 */
+.userinfo-wrapper{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+.userinfo-wrapper .icon-location{
+    margin-left: 20px;
+    color: #1989fa;
+}
+
+.userinfo-wrapper .userinfo-content{
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+}
+.userinfo-wrapper .userinfo-content .user text{
+    font-size: 14px;
+}
+.userinfo-wrapper .userinfo-content .user .phone{
+    margin-left: 10px;
+}
+.userinfo-wrapper .userinfo-content .address-wrapper text{
+    color: #c0c0c0;
+    font-size: 12px;
+}
+/* 订单号 */
+.trade_no-wrapper{
+    height: 30px;
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.trade_no-wrapper text{
+    margin-left: 20px;
+    font-size: 13px;
+    color: #ccc;
+}
+/* 订单详细信息 */
+.cart-content-wrapper{
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.cart-content-wrapper .cart-item{
+    height: 44px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.cart-content-wrapper .cart-item .cart-item-img{
+    height: 100%;
+    margin-left: 20px;
+    width: 20%;
+}
+.cart-content-wrapper .cart-item .cart-item-img image{
+    height: 100%;
+    width: 44px;
+    border: 0.5px solid #ccc;
+}
+.cart-content-wrapper .cart-item .cart-item-title{
+    width: 45%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.cart-content-wrapper .cart-item .cart-item-title text{
+    font-size: 14px;
+}
+.cart-content-wrapper .cart-item .cart-item-count{
+    width: 10%;
+}
+.cart-content-wrapper .cart-item .cart-item-count text{
+    font-size: 12px;
+}
+.cart-content-wrapper .cart-item .cart-item-subtotal{
+    width: 25%;
+}
+.cart-content-wrapper .cart-item .cart-item-subtotal text{
+    font-size: 12px;
+}
+.cart-item-total{
+    width: 20%;
+    margin-left: 20px;
+}
+
+.cart-item-total text{
+    font-size: 13px;
+}
+/* 订单附带信息 */
+.order-info-wrapper{
+    width: 100%;
+    background-color: #ffffff;
+}
+.order-info-wrapper .item-wrapper{
+    margin:5px 20px;
+    display: flex;
+    align-items: center;
+    height: 38px
+}
+.order-info-wrapper .item-wrapper text{
+    font-size: 14px;
+}
+.order-info-wrapper .item-wrapper .title{
+    width: 30%;
+}
+.order-info-wrapper .item-wrapper .content{
+    width: 70%;
+    font-size: 12px;
+}

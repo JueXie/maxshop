@@ -1,0 +1,14 @@
+<template name="max-item-2">
+<view class="hot-sale-warp">
+    <!-- 热销商品循环 -->
+      <view class="hot-sale-item-wrap" wx:for="{{hotsaleproducts}}">
+        <view class="hot-sale-image-wrap">
+         <image mode="widthFix" style="width:100%" src="{{item.images[0].src}}"></image>
+        </view>
+        <view class="hot-sale-content-warp">
+          <text class="hot-sale-title">{{item.name}}</text>
+          <text class="hot-sale-price">￥{{item.price}}</text>
+        </view>
+      </view>
+</view>
+</template>

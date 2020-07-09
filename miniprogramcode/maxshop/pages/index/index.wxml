@@ -1,0 +1,76 @@
+<import src="../templates/max-item-1.wxml"/>
+
+<max-nav title="{{title}}"></max-nav>
+<view class="titlewrap" style="height:{{titlebannerheight}};">
+  <text class="title">简单的商城</text>
+</view>
+<view class="topbar">
+  <view class="left-topbar">
+    <view bindtap="goToSearch" class="btn-search">
+      <text class="search-index">搜索</text>
+    </view> 
+  </view>
+  <view class="right-topbar">
+    <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll">
+        <view data-id="1" bindtap='clickitem' class="scroll-view-item_H"><view class="item {{isActive == 1?'active':''}}">首页</view></view>
+        <view data-id="2" bindtap='clickitem' class="scroll-view-item_H"><view class="item {{isActive == 2?'active':''}}">推荐</view></view>
+        <view data-id="3" bindtap='clickitem' class="scroll-view-item_H"><view class="item {{isActive == 3?'active':''}}">新品</view></view>
+        <view data-id="4" bindtap='clickitem' class="scroll-view-item_H"><view class="item {{isActive == 4?'active':''}}">特色</view></view>
+        <view data-id="5" bindtap='clickitem' class="scroll-view-item_H"><view class="item {{isActive == 5?'active':''}}">动态</view></view>
+        <view data-id="6" bindtap='clickitem' class="scroll-view-item_H"><view class="item {{isActive == 6?'active':''}}">会员</view></view>
+    </scroll-view>
+  </view>
+</view>
+<swiper class="swiper-wrap" style="height:{{swiperheight}}" indicator-dots='true' autoplay="true">
+  <swiper-item class="swiper-item"><image style="width:100%" mode="widthFix" src="/images/swiper1.jpg"></image></swiper-item>
+  <swiper-item class="swiper-item"><image style="width:100%" mode="widthFix" src="/images/swiper2.jpg"></image></swiper-item>
+</swiper>
+<view wx:if="{{isActive == 1}}" id="home" class="content-wrap">
+  <view class="content-head">
+    <view>
+    <text class="head-text-1">极致性价比</text>
+    <text class="head-text-2">智能圈品</text>
+    <text class="head-text-3">性价优选</text>
+    </view>
+    <!-- <view bindtap="goToProductList"><text class="show-more">查看全部</text></view> -->
+  </view>
+  <view class="content">
+  <!-- item循环 -->
+    <!-- 需要传入商品数组以及每一项的高度 -->
+    <template is="max-item-1" data="{{products,itemheight}}"></template>
+    <!-- 热销商品 -->
+    <template is="max-item-2" data="{{hotsaleproducts}}"></template>
+  </view>
+
+</view>
+
+
+
+<view wx:elif="{{isActive==2}}" id="product">
+  商品
+</view>
+
+<view wx:elif="{{isActive==3}}" id="new">
+  新品
+</view>
+
+<view wx:elif="{{isActive==4}}" id="feature">
+  特色
+</view>
+
+<view wx:elif="{{isActive==5}}" id="message">
+  动态
+</view>
+
+<view wx:elif="{{isActive==6}}" id="vip">
+  会员
+</view>
+
+<!-- <view class="cart-wrap" bindtap="goToCart">
+  <view class="cart-content">
+    <block wx:if="{{cart_total!=0}}">
+    <van-tag class="cart-count" round type="danger">{{cart_total}}</van-tag>
+    </block>
+    <van-icon class="cart-img" name="cart" />
+  </view>
+</view> -->

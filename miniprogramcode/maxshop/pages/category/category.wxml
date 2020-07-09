@@ -1,0 +1,21 @@
+<max-nav title="{{title}}"></max-nav>
+
+<view class="max-flex-wrap">
+	<van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+		<block wx:for="{{categories}}">
+			<van-sidebar-item title="{{item.name}}" />
+		</block>
+	</van-sidebar>
+	<block wx:for="{{categories}}" wx:for-index="index" wx:for-item="parent">
+		<view style="display:{{isActive==index?'block':'none'}};width:100%">
+			<van-grid column-num="3">
+				<van-grid-item use-slot wx:for="{{ parent.child_category}}" link-type="navigateTo" url="/pages/product-list/product-list?mode=category&id={{item.category_id}}&name={{item.name}}">
+					<view class="right-item">
+						<image mode="widthFix" src="{{item.preview_img}}"></image>
+						<text>{{item.name}}</text>
+					</view>
+				</van-grid-item>
+			</van-grid>
+		</view>
+	</block>
+</view>

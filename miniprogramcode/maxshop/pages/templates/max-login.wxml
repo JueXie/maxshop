@@ -1,0 +1,8 @@
+<!-- maxshop用户登陆模块 -->
+<template name="max-login">
+  <view class="login-wrap">
+    <view class="login-content">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">请先登陆</button>
+    </view>
+  </view>
+</template>

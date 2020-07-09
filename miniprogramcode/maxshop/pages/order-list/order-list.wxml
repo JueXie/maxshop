@@ -1,0 +1,99 @@
+<max-nav title="{{title}}" backgroundColor="#f2f2f2"></max-nav>
+<van-tabs active="{{index}}" bind:change="onOrderChange">
+	<van-tab title="待支付">
+		<view wx:for="{{pending_list}}" class="order-item" wx:for-item="item">
+			<van-row custom-class="item-title">
+				<van-col custom-class="item-date" span="12">{{item.created_at}}</van-col>
+				<van-col custom-class="item-status" span="12">{{item.status}}</van-col>
+			</van-row>
+			<view wx:for="{{item.order_data.cart_data.content}}" class="item-content" wx:for-item="i">
+				<image mode="widthFix" class="product-img" src="{{i.main_img}}"></image>
+				<text class="product-name van-ellipsis">{{i.title}}</text>
+				<view class="product-count">×{{i.sub_count}}</view>
+				<view class="product-price">{{i.sub_total}}</view>
+			</view>
+			<view class="item-total">
+				<view class="product-img"></view>
+				<view class="product-name"></view>
+				<view class="total-count">×{{item.order_data.cart_data.count}}</view>
+				<view class="total-price">{{item.order_data.cart_data.price}}</view>
+			</view>
+			<view class="item-bottom-wrap">
+				<van-button type="default">联系客服</van-button>
+				<van-button data-orderid="{{item.order_id}}" bindtap="goToOrderDetail" type="default">查看详情</van-button>
+			</view>
+		</view>
+	</van-tab>
+	<van-tab title="待发货">
+		<view wx:for="{{paid_list}}" class="order-item" wx:for-item="item">
+			<van-row custom-class="item-title">
+				<van-col custom-class="item-date" span="12">{{item.created_at}}</van-col>
+				<van-col custom-class="item-status" span="12">{{item.status}}</van-col>
+			</van-row>
+			<view wx:for="{{item.order_data.cart_data.content}}" class="item-content" wx:for-item="i">
+				<image class="product-img" src="{{i.main_img}}"></image>
+				<text class="product-name van-ellipsis">{{i.title}}</text>
+				<view class="product-count">×{{i.sub_count}}</view>
+				<view class="product-price">{{i.sub_total}}</view>
+			</view>
+			<view class="item-total">
+				<view class="product-img"></view>
+				<view class="product-name"></view>
+				<view class="total-count">×{{item.order_data.cart_data.count}}</view>
+				<view class="total-price">{{item.order_data.cart_data.price}}</view>
+			</view>
+			<view class="item-bottom-wrap">
+				<van-button type="default">联系客服</van-button>
+				<van-button type="default">查看详情</van-button>
+			</view>
+		</view>
+	</van-tab>
+	<van-tab title="运输中">
+		<view wx:for="{{logistics_list}}" class="order-item" wx:for-item="item">
+			<van-row custom-class="item-title">
+				<van-col custom-class="item-date" span="12">{{item.created_at}}</van-col>
+				<van-col custom-class="item-status" span="12">{{item.status}}</van-col>
+			</van-row>
+			<view wx:for="{{item.order_data.cart_data.content}}" class="item-content" wx:for-item="i">
+				<image class="product-img" src="{{i.main_img}}"></image>
+				<text class="product-name van-ellipsis">{{i.title}}</text>
+				<view class="product-count">×{{i.sub_count}}</view>
+				<view class="product-price">{{i.sub_total}}</view>
+			</view>
+			<view class="item-total">
+				<view class="product-img"></view>
+				<view class="product-name"></view>
+				<view class="total-count">×{{item.order_data.cart_data.count}}</view>
+				<view class="total-price">{{item.order_data.cart_data.price}}</view>
+			</view>
+			<view class="item-bottom-wrap">
+				<van-button type="default">联系客服</van-button>
+				<van-button type="default">查看详情</van-button>
+			</view>
+		</view>
+	</van-tab>
+	<van-tab title="已完成">
+		<view wx:for="{{success_list}}" class="order-item" wx:for-item="item">
+			<van-row custom-class="item-title">
+				<van-col custom-class="item-date" span="12">{{item.created_at}}</van-col>
+				<van-col custom-class="item-status" span="12">{{item.status}}</van-col>
+			</van-row>
+			<view wx:for="{{item.order_data.cart_data.content}}" class="item-content" wx:for-item="i">
+				<image class="product-img" src="{{i.main_img}}"></image>
+				<text class="product-name van-ellipsis">{{i.title}}</text>
+				<view class="product-count">×{{i.sub_count}}</view>
+				<view class="product-price">{{i.sub_total}}</view>
+			</view>
+			<view class="item-total">
+				<view class="product-img"></view>
+				<view class="product-name"></view>
+				<view class="total-count">×{{item.order_data.cart_data.count}}</view>
+				<view class="total-price">{{item.order_data.cart_data.price}}</view>
+			</view>
+			<view class="item-bottom-wrap">
+				<van-button type="default">联系客服</van-button>
+				<van-button type="default">查看详情</van-button>
+			</view>
+		</view>
+	</van-tab>
+</van-tabs>

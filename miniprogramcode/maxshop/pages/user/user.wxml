@@ -1,0 +1,18 @@
+<max-nav title="{{title}}"></max-nav>
+<view class="info-wrap">
+<view class="info-mask">
+
+</view>
+</view>
+<view class="my-order">
+ <text class="order-title">我的订单</text>
+</view>
+<van-grid column-num="4">
+  <van-grid-item icon="gold-coin-o" data-id="0" bind:click="toOrderList" text="待支付" />
+  <van-grid-item icon="clock-o" data-id="1" bind:click="toOrderList" text="待发货" />
+  <van-grid-item icon="logistics" data-id="2" bind:click="toOrderList" text="运输中" />
+  <van-grid-item icon="passed" data-id="3" bind:click="toOrderList" text="已完成" />
+</van-grid>
+<view class="content-wrap">
+    <van-cell title="个人信息" is-link icon="manager-o" />
+</view>

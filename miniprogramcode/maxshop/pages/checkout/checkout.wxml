@@ -1,0 +1,56 @@
+<max-nav title="{{title}}"></max-nav>
+<!-- 选择地址 -->
+<block wx:if="{{addressAuth}}">
+<van-cell title="{{addressTitle}}" is-link bind:click="chooseAddress" />
+</block>
+<block wx:else>
+<van-cell title="获取地址授权" is-link bind:click="openSetting" />
+</block>
+
+
+<!-- 地址信息展示 -->
+<block wx:if="{{address!=null}}">
+  <view class="address-wrap">
+    <text>地址：{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}</text>
+    <text>电话：{{address.telNumber}}</text>
+    <text>收件人：{{address.userName}}</text>
+  </view>
+</block>
+
+<!-- 选择支付方式 -->
+<view class="payment-title">选择支付方式</view>
+<van-radio-group  value="{{ radio }}">
+  <van-cell-group>
+    <van-cell clickable wx:for="{{payment}}" data-index="{{index}}" data-name="{{item.name}}" bind:click="onClick">
+      <view style="display:flex;align-items:center" slot="title">
+        <image mode="widthFix" class="payment-img" src="{{item.preview_img}}"></image>
+        <view class="van-cell-text">{{item.name}}</view>
+      </view>
+      <van-radio slot="right-icon" name="{{index}}" checked-color="#07c160" />
+    </van-cell>
+  </van-cell-group>
+</van-radio-group>
+
+<block wx:for="{{order_info.content}}">
+<view class="line"></view>
+    <van-card
+    price="{{item.sub_total}}"
+    origin-price="{{item.normal_price}}"
+    title="{{item.title}}"
+    thumb="{{ item.main_img }}"
+    num="{{item.sub_count}}"
+    >
+    </van-card>
+</block>
+<view class="bottom"></view>
+<van-submit-bar
+  price="{{order_info.price}}"
+  button-text="结算"
+  bind:submit="onSubmit"
+> 
+  <block wx:if="{{tip!=''}}">
+    <view slot="tip">
+      {{tip}}
+    </view>
+  </block>
+</van-submit-bar>

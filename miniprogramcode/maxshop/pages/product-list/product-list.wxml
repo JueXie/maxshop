@@ -1,0 +1,35 @@
+<max-nav title="{{title}}"></max-nav>
+
+<block wx:for="{{products}}">
+    <block wx:if="{{item.type=='simple'}}">
+        <view id="{{item.product_id}}" bindtap="goToDetail">
+            <van-card
+            price="{{item.normal_price}}"
+            desc="{{item.info}}"
+            title="{{item.title}}"
+            thumb="{{ item.main_img }}">
+                <view slot="footer">
+                    <van-button id="{{item.product_id}}" catchtap="addToCart" size="small">加入购物车</van-button>
+                </view>
+            </van-card>
+        </view>
+    </block>
+    <block wx:else>
+        <van-card
+        price="{{item.attrs.price_limits}}"
+        desc="{{item.info}}"
+        title="{{item.title}}"
+        thumb="{{ item.main_img }}">
+            <view slot="footer">
+                <van-button id="{{item.product_id}}" catchtap="secletItem" size="small">选择选项</van-button>
+            </view>
+        </van-card>  
+    </block>
+    <view class="mini-line"></view>
+</block>    
+
+<van-overlay show="{{ no_more }}" bind:click="GoBack">
+  <view class="tip-wrapper">
+    <text>该分类没有任何商品</text>
+  </view>
+</van-overlay>

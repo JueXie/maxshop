@@ -1,0 +1,17 @@
+.max-nav-wrap{
+    display: flex;
+    align-items: flex-end;
+}
+.max-nav-wrap .max-nav-content{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.max-nav-wrap .max-nav-content .title{
+    font-weight: 500;
+    font-size: 18px;
+}
+.max-nav-wrap .max-nav-content .max-navigate-back .back-icon{
+    width: 40px;
+}

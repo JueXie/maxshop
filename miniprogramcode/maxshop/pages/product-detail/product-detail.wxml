@@ -1,0 +1,35 @@
+<max-nav title="{{title}}"></max-nav>
+<swiper style="height:{{sys_width}}">
+  <block wx:for="{{product.slide_img}}">
+  <swiper-item >
+    <image style="width:100%" mode="widthFix" src="{{item}}"></image>
+  </swiper-item>
+  </block>
+</swiper>
+
+<van-cell-group title="产品信息">
+  <van-cell title="产品属性" is-link  bind:click="productAttr" />
+  <van-cell title="单元格" value="内容" />
+</van-cell-group>
+
+<van-goods-action>
+  <van-goods-action-icon
+    icon="chat-o"
+    text="客服"
+    bind:click="onClickIcon"
+  />
+  <van-goods-action-icon
+    icon="cart-o"
+    text="购物车"
+    bind:click="onClickIcon"
+  />
+  <van-goods-action-button
+    text="加入购物车"
+    type="warning"
+    bind:click="addToCart"
+  />
+  <van-goods-action-button
+    text="立即购买"
+    bind:click="onClickButton"
+  />
+</van-goods-action>

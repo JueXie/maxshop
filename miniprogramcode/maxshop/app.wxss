@@ -1,0 +1,88 @@
+/**app.wxss**/
+@import "/miniprogram_npm/@vant/weapp/common/index.wxss";
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+/* max-login模板样式 */
+.login-wrap{
+  height: 100%;
+  width: 100%;
+  position: absolute;/*用绝对布局脱离文档流使得height:100%生效*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* max-item-1模板样式 */
+.item-wrap{
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+}
+.item-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 5px;
+  width: 100%;
+}
+.title-text{
+  font-size: 28rpx;
+}
+.item-content{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.item-content-left{
+  display:flex;
+  justify-content: space-between;
+}
+.item-content-left-price{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.line::after{
+  content: ''; 
+  position: absolute;
+  right: -5px;
+  bottom: 0px;
+  width: 1px;
+  height: 100%;
+  background-color: #f2f2f2;
+}
+.cart-wrap{
+  position: fixed;
+  right: 10px;
+  bottom: 100px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  border: 0.5px #f2f2f2 solid;
+}
+.cart-img{
+  font-size:30px;
+  color: #515151;
+}
+.cart-content{
+  position: relative;
+}
+.cart-count{
+  position: absolute;
+  top: -15px;
+  left: -12px;
+}

@@ -1,0 +1,35 @@
+<template name="max-item-1">
+<view wx:for="{{products}}" class="item-wrap" style="height:{{itemheight}}" data-id="{{item.product_id}}" bindtap="navigtarToDetail">
+      <view style="width:{{itemheight}}"><image mode="widthFix" style="width:{{itemheight}}" src="{{item.main_img}}"></image></view>
+      <view class="item-right">
+      <view class="item-title">
+        <text class="title-text">{{item.title}}</text>
+      </view> 
+      <view class="item-content">
+      <view class="item-content-left">
+      <block wx:if="{{item.type==='simple'}}">
+        <view class="item-content-left-price line">
+          <text style="font-size:20rpx;color:#ccc">现价</text><text style="font-size:24rpx;">￥{{item.hot_sale_price}}</text>
+        </view>
+        <view class="item-content-left-price" style="margin-left:10px">
+          <text style="font-size:20rpx;color:#ccc">原价</text><text style="font-size:24rpx;text-decoration:line-through;color:#ccc">￥{{item.normal_price}}</text>
+        </view>
+      </block>
+      <block wx:else>
+         <view class="item-content-left-price line">
+          <text style="font-size:20rpx;color:#ccc">价格</text><text style="font-size:24rpx;">￥{{item.attrs.price_limits}}</text>
+        </view>
+      </block>
+        </view>
+          <view class="item-content-right">
+            <block wx:if="{{item.type=='simple'}}">
+              <view data-id="{{item.product_id}}" class="addButton" catchtap="addToCart">加入购物车</view>
+            </block>
+            <block wx:else>
+            <view class="addButton" catchtap="selectItem">选择选项</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+</template>

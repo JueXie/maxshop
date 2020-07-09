@@ -1,0 +1,5 @@
+<!-- <button open-type="getUserInfo" bindgetuserinfo="max_login">登陆</button>
+<button bindtap="demologin">登陆</button>
+<button bindtap="demo">demo</button> -->
+<import src="../templates/max-login.wxml"/>
+<template is="max-login"></template>
