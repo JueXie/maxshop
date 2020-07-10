@@ -1,16 +1,17 @@
-##���л���
+#一个微信小程序商城
+##运行环境
 
-- php7.1�汾����
-- ��Ҫ��װcomposer
-- �������linux����
-- apache��Ҫ������д����
-- php��Ҫ����'openssl','pdo','mbstring','tokenizer','JSON','cURL','fileinfo'��չ
-- ��ĿҪ��775Ȩ��
+- php7.1版本以上
+- 需要安装composer
+- 最好是在linux运行
+- apache需要开启重写规则
+- php需要开启'openssl','pdo','mbstring','tokenizer','JSON','cURL','fileinfo'扩展
+- 项目要有775权限
 
-##ʹ�÷���
+##使用方法
 
-- ���浽��վ��Ŀ¼������composer install��װ
-- ����վ����װ��ʼ����
+- 保存到网站根目录并运行composer install安装
+- 打开网站并安装初始设置
 
 
-#���������˽��QQ:2648950779
+#有问题可以私聊QQ:2648950779
