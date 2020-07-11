@@ -14,7 +14,7 @@
             <dt @yield('sidebar2')><i class="Hui-iconfont">&#xe613;</i> 媒体管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd @yield('sidebar2-1')>
                 <ul>
-                    <li @yield('sidebar2-1-1')><a href="/admin/media/management" title="媒体管理">媒体管理</a></li>
+                    <li @yield('sidebar2-1-1')><a href="/admin/media/management/1" title="媒体管理">媒体管理</a></li>
                 </ul>
             </dd>
         </dl>

@@ -14,8 +14,9 @@
 use App\Entity\Category;
 
 Route::get('/', function (\Illuminate\Http\Request $request) {
-    $var = \Illuminate\Support\Facades\Cache::has(23);
-    var_dump($var);
+    if (!file_exists('./install.block')){
+        return redirect('/install/welcome');
+    }
 });
 Route::get('/2', function (\Illuminate\Http\Request $request) {
     dd(config('app.name'));
@@ -39,6 +40,7 @@ Route::any('max_wechat/notify','Service\NotifyController@wechatNotify');
 
 // TODO 逻辑路由组
 Route::group(["prefix" => "service"], function () {
+    Route::post('/admin/login', 'Service\IndexController@adminLogin');
     //用户
     Route::get('/get_user_by_id', 'Service\UserController@getUserByID');
     Route::get('/get_users', 'Service\UserController@getUsers');
@@ -66,8 +68,10 @@ Route::group(["prefix" => "service"], function () {
 });
 
 //后台视图路由
-Route::group(["prefix" => "admin"], function () {
+Route::get('admin/login','Admin\IndexController@toLogin');
+Route::group(["prefix" => "admin","middleware" => "check_admin"], function () {
     Route::get('/', 'Admin\IndexController@toWelcome');
+
     //用户
     Route::get('/user-list', 'Admin\UserViewController@toUserList');
     Route::get('/edit-user/{user_id}', 'Admin\UserViewController@toEditUser');
