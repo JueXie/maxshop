@@ -20,7 +20,7 @@
             <h1>管理员登陆</h1>
             <form class="form" id="entry_form" action="/service/admin/login" method="post">
                 {{csrf_field()}}
-                <input name="adminname" type="text" placeholder="用户名" id="adminname">
+                <input name="adminname" type="text" placeholder="用户名" id="admin_name">
                 <input name="password" type="password" placeholder="密码" id="password">
                 <button type="submit" id="entry_btn">登录</button>
                 <div id="prompt" class="prompt"></div>
@@ -32,7 +32,7 @@
 <script type="text/javascript">
     $(function(){
         Victor("container", "output");   //登录背景函数
-        $("#entry_name").focus();
+        $("#admin_name").focus();
         $(document).keydown(function(event){
             if(event.keyCode==13){
                 $("#entry_btn").click();

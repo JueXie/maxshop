@@ -19,7 +19,8 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
     }
 });
 Route::get('/2', function (\Illuminate\Http\Request $request) {
-    dd(config('app.name'));
+    $res = \App\MaxCore\EnvEdit::editEnvWithKey('APP_URL','https://maxshop.com');
+    dd($res);
 });
 
 /*****************************商城安装路由组***********************************/
@@ -68,33 +69,36 @@ Route::group(["prefix" => "service"], function () {
 });
 
 //后台视图路由
-Route::get('admin/login','Admin\IndexController@toLogin');
-Route::group(["prefix" => "admin","middleware" => "check_admin"], function () {
-    Route::get('/', 'Admin\IndexController@toWelcome');
 
-    //用户
-    Route::get('/user-list', 'Admin\UserViewController@toUserList');
-    Route::get('/edit-user/{user_id}', 'Admin\UserViewController@toEditUser');
-    Route::get('/add-user', 'Admin\UserViewController@toAddUser');
-    Route::post('/add_user_submit', 'Admin\UserViewController@addUserSubmit');
-    Route::post('/edit_user_submit/{user_id}', 'Admin\UserViewController@editUserSubmit');
-    //产品
-    Route::get('/product-list', 'Admin\ProductViewController@toProductList');
-    Route::get('/product-add', 'Admin\ProductViewController@toProductAdd');
-    Route::get('/edit-product/{product_id}', 'Admin\ProductViewController@toEditProduct');
-    //分类
-    Route::get('/category-list', 'Admin\CategoryViewController@toCategoryList');
-    Route::get('/category-add', 'Admin\CategoryViewController@toCategoryAdd');
-    Route::get('/edit-category/{category_id}', 'Admin\CategoryViewController@toCategoryEdit');
-    //媒体管理
-    Route::get('/media/management/{page}', 'Admin\MediaViewController@toMediaView');
+Route::group(["prefix" => "admin"], function () {
+    Route::get('/login','Admin\IndexController@toLogin');
+    Route::group(["middleware" => "check_admin"],function (){
+        Route::get('/', 'Admin\IndexController@toWelcome');
 
-    //设置--快递
-    Route::get('/shipping', 'Admin\ShippingViewController@toIndex');
-    Route::get('/shipping-edit', 'Admin\ShippingViewController@toShippingEdit');
-    Route::get('/shipping-add', 'Admin\ShippingViewController@toShippingAdd');
-    //设置--支付
-    Route::get('/payment', 'Admin\PaymentViewController@toPayment');
+        //用户
+        Route::get('/user-list', 'Admin\UserViewController@toUserList');
+        Route::get('/edit-user/{user_id}', 'Admin\UserViewController@toEditUser');
+        Route::get('/add-user', 'Admin\UserViewController@toAddUser');
+        Route::post('/add_user_submit', 'Admin\UserViewController@addUserSubmit');
+        Route::post('/edit_user_submit/{user_id}', 'Admin\UserViewController@editUserSubmit');
+        //产品
+        Route::get('/product-list', 'Admin\ProductViewController@toProductList');
+        Route::get('/product-add', 'Admin\ProductViewController@toProductAdd');
+        Route::get('/edit-product/{product_id}', 'Admin\ProductViewController@toEditProduct');
+        //分类
+        Route::get('/category-list', 'Admin\CategoryViewController@toCategoryList');
+        Route::get('/category-add', 'Admin\CategoryViewController@toCategoryAdd');
+        Route::get('/edit-category/{category_id}', 'Admin\CategoryViewController@toCategoryEdit');
+        //媒体管理
+        Route::get('/media/management/{page}', 'Admin\MediaViewController@toMediaView');
+
+        //设置--快递
+        Route::get('/shipping', 'Admin\ShippingViewController@toIndex');
+        Route::get('/shipping-edit', 'Admin\ShippingViewController@toShippingEdit');
+        Route::get('/shipping-add', 'Admin\ShippingViewController@toShippingAdd');
+        //设置--支付
+        Route::get('/payment', 'Admin\PaymentViewController@toPayment');
+    });
 
 });
 
