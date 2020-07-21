@@ -11,7 +11,6 @@
 |
 */
 
-use App\Entity\Category;
 
 Route::get('/', function (\Illuminate\Http\Request $request) {
     if (!file_exists('./install.block')){
@@ -19,8 +18,30 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
     }
 });
 Route::get('/2', function (\Illuminate\Http\Request $request) {
-    $res = \App\MaxCore\EnvEdit::editEnvWithKey('APP_URL','https://maxshop.com');
-    dd($res);
+    $startTime = strtotime('2020-07-15 12:12:12');
+    $endTime = strtotime('2020-08-15 12:12:12');
+
+     $arr = [
+           'product_id' => 35,
+           'stock'=>10,
+           'start'=>$startTime,
+           'end'=>$endTime,
+           'poster'=>'',
+     ];
+     $activity = \App\Entity\Activity::find(1);
+     $activity->activity_name = "flash_sale";
+     $activity->status = 1;
+     $activity->activity_data = serialize($arr);
+     $activity->save();
+     return "true";
+
+});
+
+/**
+ *活动路由组
+ */
+Route::group(['prefix'=>'activity'],function (){
+    Route::get('/get_activity/by_name','Service\ActivityController@getActivityByName');
 });
 
 /*****************************商城安装路由组***********************************/
@@ -35,9 +56,13 @@ Route::group(['prefix'=>'install'],function (){
     Route::post('data_submit','Install\ViewController@dataSubmit');
     Route::post('install_db','Install\ViewController@installDB');
 });
+/**
+ * 回调路由组
+ */
+Route::group(['prefix'=>'notify'],function (){
+    Route::any('/max_wechat','Service\NotifyController@wechatNotify');
+});
 
-
-Route::any('max_wechat/notify','Service\NotifyController@wechatNotify');
 
 // TODO 逻辑路由组
 Route::group(["prefix" => "service"], function () {

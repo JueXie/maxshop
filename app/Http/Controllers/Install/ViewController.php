@@ -127,7 +127,7 @@ class ViewController extends BaseController
             'DB_HOST=' . $db_host . "\n" .
             'DB_PORT=' . $db_port . "\n" .
             'DB_DATABASE=' . $db_name . "\n" .
-            'DB_USERNAME=' . $db_username . "\n" .
+            'DB_USERNAME=' . $db_sername . "\n" .
             'DB_PASSWORD=' . $db_password . "\n\n" .
             'CACHE_DRIVER=' . $cache_driver . "\n" .
             'SESSION_DRIVER=' . $session_driver . "\n" .
